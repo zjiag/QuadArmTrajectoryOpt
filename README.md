@@ -7,6 +7,9 @@ This repository contains MATLAB code for a simple optimization framework built o
 
 ![Simulation](https://github.com/zjiag/Simple-Optimization-Framework-for-Quadruped-Robots-with-Manipulator/blob/main/simulation.gif)
 
+
+<img src="https://github.com/zjiag/Simple-Optimization-Framework-for-Quadruped-Robots-with-Manipulator/blob/main/simulation.gif" width="300" height="225">
+
 ## Features
 
 - **CasADi-based Optimization**: Utilizes the CasADi framework for efficient numerical optimization.
