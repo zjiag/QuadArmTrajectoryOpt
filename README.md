@@ -5,8 +5,6 @@
 
 This repository contains MATLAB code for a simple optimization framework built on top of CasADi, aimed at optimizing the trajectory of quadruped robots equipped with a manipulator to achieve a desired path. The core of this project lies in kinematic optimization, where we calculate the optimal positions and joint angles for the robot's base and arm, respectively, to follow a predefined circular trajectory closely.
 
-<img src="https://github.com/zjiag/Simple-Optimization-Framework-for-Quadruped-Robots-with-Manipulator/blob/main/simulation.gif" style="width: 300px; height: 200px; display: block; margin: 0 auto;">
-
 <div align="center">
   <img src="https://github.com/zjiag/Simple-Optimization-Framework-for-Quadruped-Robots-with-Manipulator/blob/main/simulation.gif" width="500" height="auto">
 </div>
