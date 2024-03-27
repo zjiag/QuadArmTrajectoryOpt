@@ -1,5 +1,3 @@
-你要将下面代码放在GitHub上，写一个readme，大概说明这是一个基于casadi的简易优化框架，考虑运动学或是什么优化载有机械臂的四足机器人达到期望轨迹的过程
-
 import casadi.*
 
 
@@ -15,25 +13,22 @@ desired_trajectory = [15 + circle_radius * cos(theta)',  10 + circle_radius * si
 joint_angles_opt = MX.sym('joint_angles_opt', n_steps, n_joints);
 base_pos_opt = MX.sym('base_pos_opt', n_steps, 3);
 
-% --- 目标函数 ---
+% --- Objective function ---
 J = 0;
 for i = 1:n_steps
-    % 计算机械臂末端的位置
     [~, ~, end_effector_pos] = compute_arm_positions(base_pos_opt(i, :)+ [0, 0, 2/2], joint_angles_opt(i, :), 5, 4, 2);
-    
-    % 计算机械臂末端与期望轨迹之间的距离
+  
     distance = norm(end_effector_pos - desired_trajectory(i, :));
     J = J + distance^2;
 end
 
-% 设置决策变量的初始猜测和边界
 joint_angles_init = zeros(n_steps, n_joints);
 base_pos_init = repmat([10, 5, 7.5], n_steps, 1);
 initial_guess = [joint_angles_init(:); base_pos_init(:)];
 lower_bounds = [repmat([-180; -90; -90; -90; -360] * pi / 180, n_steps, 1); repmat([-inf; -inf; 0], n_steps, 1)];
 upper_bounds = [repmat([180; 180; 180; 180; 360] * pi / 180, n_steps, 1); repmat([inf; inf; inf], n_steps, 1)];
 
-% --- 求解优化问题 ---
+
 nlp = struct('x', [joint_angles_opt(:); base_pos_opt(:)], 'f', J, 'g', []);
 solver = nlpsol('solver', 'ipopt', nlp);
 result = solver('x0', initial_guess, 'lbx', lower_bounds, 'ubx', upper_bounds);
