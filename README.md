@@ -7,6 +7,10 @@ This repository contains MATLAB code for a simple optimization framework built o
 
 <img src="https://github.com/zjiag/Simple-Optimization-Framework-for-Quadruped-Robots-with-Manipulator/blob/main/simulation.gif" style="width: 300px; height: 200px; display: block; margin: 0 auto;">
 
+<div align="center">
+  <img src="https://github.com/zjiag/Simple-Optimization-Framework-for-Quadruped-Robots-with-Manipulator/blob/main/simulation.gif" width="500" height="auto">
+</div>
+
 
 ## Features
 
