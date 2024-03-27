@@ -133,16 +133,15 @@ function draw_box(center, dim, angles)
             center + [+dx +dy +dz];
         ];
 
-        % 将角度转换为矩阵
+    
         R = eul2rotm(angles, 'ZYX');
         for i = 1:8
             corners(i, :) = center + (R * (corners(i, :) - center)')';
         end
-
-        % 定义长方体的6个面
+        
         faces = [1 2 4 3; 5 6 8 7; 1 2 6 5; 3 4 8 7; 1 3 7 5; 2 4 8 6];
 
-        % 绘制长方体
+    
         patch('Vertices', corners, 'Faces', faces, 'FaceColor', 'r');
 end
 
